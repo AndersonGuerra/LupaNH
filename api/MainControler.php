@@ -64,7 +64,7 @@ switch ($method) {
 				$latitude = addslashes($_POST['latitude']);
 				$longitude = addslashes($_POST['longitude']);
 				$coleta = addslashes($_POST['coleta']);
-				$frequenacia = addslashes($_POST['frequencia']);
+				$frequencia = addslashes($_POST['frequencia']);
 
 				Lixo::adicionar($latitude, $longitude, $coleta, $frequencia);
 

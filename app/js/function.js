@@ -3,19 +3,40 @@ da pra colocar um item em cada formulario somente pra identificar pra onde deve 
 (a url) aí fica somente um enviarForm generico que altera a url
 */
 
-// função para enviar formulário de água
-function enviarForm() {
-    var dataForm = $("#form-agua").serialize();
+// função para enviar formulário de asfalto
+url = "http://localhost/LUPANH/asfalto";
+function enviarFormAsfalto() {
+    var dataForm = $("#form-asfalto").serialize();
     $.ajax({
-        url: "http://172.16.15.83/app/agua",
+        url: url+"/agua",
         data: dataForm,
         method: 'POST',
     }).done(function(resposta) {
         var teste = resposta;
-        if (resposta == "ok") {
+        if (resposta.status == "ok") {
             alert(resposta.mensagem);
         } else {
-            alert(resposta);
+            alert(resposta.mensagem);
+        }
+    }).fail(function () {
+        alert("erro");
+    });
+}
+
+// função para enviar formulário de água
+url = "http://localhost/LUPANH/api";
+function enviarFormAgua() {
+    var dataForm = $("#form-agua").serialize();
+    $.ajax({
+        url: url+"/agua",
+        data: dataForm,
+        method: 'POST',
+    }).done(function(resposta) {
+        var teste = resposta;
+        if (resposta.status == "ok") {
+            alert(resposta.mensagem);
+        } else {
+            alert(resposta.mensagem);
         }
     }).fail(function () {
         alert("erro");
@@ -26,15 +47,15 @@ function enviarForm() {
 function enviarFormLixo() {
     var dataForm = $("#form-lixo").serialize();
     $.ajax({
-        url: "http://172.16.15.83/app/lixo",
+        url: url+"/lixo",
         data: dataForm,
         method: 'POST',
     }).done(function(resposta) {
         var teste = resposta;
-        if (resposta == "ok") {
+        if (resposta.status == "ok") {
             alert(resposta.mensagem);
         } else {
-            alert(resposta);
+            alert(resposta.mensagem);
         }
     }).fail(function () {
         alert("erro");
@@ -43,17 +64,18 @@ function enviarFormLixo() {
 
 // função para enviar formulário de esgoto
 function enviarFormEsgoto() {
+    console.log('hm');
     var dataForm = $("#form-esgoto").serialize();
     $.ajax({
-        url: "http://172.16.15.83/app/esgoto",
+        url: url+"/esgoto",
         data: dataForm,
         method: 'POST',
     }).done(function(resposta) {
         var teste = resposta;
-        if (resposta == "ok") {
+        if (resposta.status == "ok") {
             alert(resposta.mensagem);
         } else {
-            alert(resposta);
+            alert(resposta.mensagem);
         }
     }).fail(function () {
         alert("erro");
